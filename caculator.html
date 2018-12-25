@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>计算器</title>
+  <link rel="stylesheet" href="mystyle.css">
+  <script src="function.js"></script>
+</head>
+<body>
+    <script type="text/javascript"> 
+        //实现日期时间的显示,setInterval(函数，周期)实现按指定周期调用函数
+        setInterval(function(){   
+        var date=new Date();
+        //获取当前年份  
+        var year=date.getFullYear();
+        //获取当前月份       
+        var mon=date.getMonth()+1;
+        //获取当前日        
+        var da=date.getDate(); 
+        //获取当前星期几           
+        var day=date.getDay(); 
+        //实现星期几的英文显示          
+        if(day==1)
+        	day="Monday";
+        else if(day==2) 
+            day="Tuesday";
+        else if(day==3) 
+            day="Wednesday";
+        else if(day==4) 
+            day="Thursday";
+        else if(day==5) 
+            day="Friday";
+        else if(day==6) 
+            day="Saturday";
+        if(day==7) 
+            day="Sunday";
+        //获取小时  
+        var h=date.getHours();
+        //获取分钟    
+        var m=date.getMinutes();     
+        if(m<10)
+            m='0'+m; 
+        var s=date.getSeconds();      
+        if(s<10)
+            s='0'+s;           
+        var d=document.getElementById('Date');    
+        d.innerHTML=year+'.'+mon+'.'+da+' '+day+' '+h+':'+m+':'+s;  
+        },1000)
+    </script>
+   <!--用表格作为计算机的整体框架-->
+  <table border="1">
+    <thead>
+      <tr>
+        <td id="Date" colspan="5" class="title"></td>
+      </tr>
+      <tr>
+        <td colspan="5"><input placeholder="INPUT" class="up" type="text" id="exp"></td>
+      </tr>
+      <tr>
+        <td colspan="5"><input placeholder="OUTPUT" class="up" type="text" id="ans"></td>
+      </tr>
+    <tbody>
+      <tr>
+        <!--实现鼠标停靠字体颜色为红色，鼠标移开字体颜色变白色的效果-->
+        <td><button onmouseover="this.style.color='red'" onmouseout="this.style.color='white'" class="teshu" onclick="onclicknum('asin')">asin</button></td>
+        <td><button onmouseover="this.style.color='red'" onmouseout="this.style.color='white'" class="teshu" onclick="onclicknum('Π')">Π</button></td>
+        <td><button onmouseover="this.style.color='red'" onmouseout="this.style.color='white'" class="teshu" onclick="onclicknum('e')">e</button></td>
+        <td><button onmouseover="this.style.color='red'" onmouseout="this.style.color='white'" class="teshu" onclick="onclicknum('ln')">ln</button></td>
+        <td><button onmouseover="this.style.color='red'" onmouseout="this.style.color='white'" class="teshu" onclick="onclicknum('sqrt')">sqrt</button></td>
+      </tr>      
+      <tr>
+        <td><button onmouseover="this.style.color='red'" onmouseout="this.style.color='white'" class="teshu" onclick="onclicknum('acos')">acos</button></td>
+        <td><button onmouseover="this.style.color='red'" onmouseout="this.style.color='white'" onclick="onclicknum(7)">7</button></td>
+        <td><button onmouseover="this.style.color='red'" onmouseout="this.style.color='white'" onclick="onclicknum(8)">8</button></td>
+        <td><button onmouseover="this.style.color='red'" onmouseout="this.style.color='white'" onclick="onclicknum(9)">9</button></td>
+        <td><button onmouseover="this.style.color='red'" onmouseout="this.style.color='white'" class="yunsuanfu" onclick="onclicknum('+')">+</button></td>
+      </tr>
+      <tr>
+        <td><button onmouseover="this.style.color='red'" onmouseout="this.style.color='white'" class="teshu" onclick="onclicknum('atan')">atan</button></td>
+        <td><button onmouseover="this.style.color='red'" onmouseout="this.style.color='white'" onclick="onclicknum(4)">4</button></td>
+        <td><button onmouseover="this.style.color='red'" onmouseout="this.style.color='white'" onclick="onclicknum(5)">5</button></td>
+        <td><button onmouseover="this.style.color='red'" onmouseout="this.style.color='white'" onclick="onclicknum(6)">6</button></td>
+        <td><button onmouseover="this.style.color='red'" onmouseout="this.style.color='white'" class="yunsuanfu" onclick="onclicknum('-')">-</button></td>
+      </tr>
+      <tr>
+        <td><button onmouseover="this.style.color='red'" onmouseout="this.style.color='white'" class="teshu" onclick="onclicknum('sin')">sin</button></td>
+        <td><button onmouseover="this.style.color='red'" onmouseout="this.style.color='white'" onclick="onclicknum(1)">1</button></td>
+        <td><button onmouseover="this.style.color='red'" onmouseout="this.style.color='white'" onclick="onclicknum(2)">2</button></td>
+        <td><button onmouseover="this.style.color='red'" onmouseout="this.style.color='white'" onclick="onclicknum(3)">3</button></td>
+        <td><button onmouseover="this.style.color='red'" onmouseout="this.style.color='white'" class="yunsuanfu" onclick="onclicknum('*')">*</button></td>
+      </tr>
+      <tr>
+         <td><button onmouseover="this.style.color='red'" onmouseout="this.style.color='white'" class="teshu" onclick="onclicknum('cos')">cos</button></td>
+        <td><button onmouseover="this.style.color='red'" onmouseout="this.style.color='white'" onclick="onclicknum('(')">(</button></td>
+        <td><button onmouseover="this.style.color='red'" onmouseout="this.style.color='white'" onclick="onclicknum(0)">0</button></td>
+        <td><button onmouseover="this.style.color='red'" onmouseout="this.style.color='white'" onclick="onclicknum(')')">)</button></td>
+        <td><button onmouseover="this.style.color='red'" onmouseout="this.style.color='white'" class="yunsuanfu" onclick="onclicknum('/')">/</button></td>
+      </tr>
+    </tbody>
+    <tfoot>
+      <tr>
+         <td><button onmouseover="this.style.color='red'" onmouseout="this.style.color='white'" class="teshu" onclick="onclicknum('tan')">tan</button></td>
+        <td><button onmouseover="this.style.color='red'" onmouseout="this.style.color='white'" onclick="onclickclear()">Del</button></td>
+        <td><button onmouseover="this.style.color='red'" onmouseout="this.style.color='white'" onclick="onclickback()"><-</button></td>
+        <td><button onmouseover="this.style.color='red'" onmouseout="this.style.color='white'" onclick="onclicknum('.')">.</button></td>
+        <td colspan="2"><button onmouseover="this.style.color='red'" onmouseout="this.style.color='white'" class="yunsuanfu" onclick="onclickresult()">=</button></td>
+     </tr>
+    </tfoot>
+  </table>
+</body>
+

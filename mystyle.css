@@ -1,0 +1,47 @@
+/*设置整个框架的大小，背景颜色*/
+table
+{
+    /*将table设置为块级元素，方便设置大小*/
+    display:block;
+    margin:auto;
+	width: 540px;
+	height: 500px;
+	background-color:#000000;
+}
+/*设置时间栏大小，字体样式*/
+#Date
+{
+    color:white;
+    height:45px;
+    width:480px;
+    font-size:20px;
+}
+/*设置输入框大小，框内文字大小，文字右对齐*/
+.up
+{   
+    text-align: right;
+	height:50px;
+    width:530px;
+    font-size:20px;
+}
+/*设置特殊按钮的背景颜色*/
+.teshu
+{
+    background-color:#A6A6A6;
+}
+.yunsuanfu
+{
+    background-color:#FF9500;
+}
+/*设置按钮的样式*/
+button
+{
+    width:100px;
+    height:50px;
+    border-color: white;
+    border-radius: 50%;
+    font-size:20px;
+    color:white;
+    background-color:#333333;
+
+}
